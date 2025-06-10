@@ -1,0 +1,44 @@
+{
+    "name": "tensorflow-gpu",
+    "build": {
+        "context": "..",
+        "dockerfile": "../dockerization/Dockerfile"
+    },
+    "runArgs": [
+        "--runtime=nvidia",
+        "--gpus",
+        "all",
+        "-it",
+        "--ipc=host",
+        "--ulimit",
+        "memlock=-1",
+        "--ulimit",
+        "stack=67108864",
+        "--rm"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-toolsai.jupyter",
+                "ms-python.python"
+            ],
+            "remoteEnv": {
+                "DISPLAY": "${localEnv:DISPLAY}",
+                "QT_X11_NO_MITSHM": "1"
+            },
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "terminal.integrated.shellArgs.linux": [
+                    "-l",
+                    "-c"
+                ],
+                "docker.shell.linux": "/bin/bash",
+                "docker.shellArgs.linux": [
+                    "-l",
+                    "-c"
+                ]
+            }
+        }
+    },
+    "remoteUser": "vscode"
+}

@@ -1,0 +1,10 @@
+mock==1.0.1
+numpydoc
+Sphinx==1.2.3
+sphinx_rtd_theme
+Pillow==10.4.0
+pygame==2.6.1
+tensorflow>=2.8,<2.9
+scikit-learn>=1.1,<1.2
+matplotlib
+numpy<2.0
